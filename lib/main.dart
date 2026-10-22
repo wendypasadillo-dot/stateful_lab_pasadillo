@@ -82,7 +82,7 @@ class _CartScreenState extends State<CartScreen> {
     ]);
   }
 
-  // Dispose controllers
+
   @override
   void dispose() {
     _nameController.dispose();
@@ -90,7 +90,6 @@ class _CartScreenState extends State<CartScreen> {
     super.dispose();
   }
 
-  // Increase quantity, maximum 99
   void _increase(int i) {
     setState(() {
       if (_items[i].quantity < 99) {
@@ -99,7 +98,7 @@ class _CartScreenState extends State<CartScreen> {
     });
   }
 
-  // Decrease quantity, minimum 1
+
   void _decrease(int i) {
     setState(() {
       if (_items[i].quantity > 1) {
@@ -108,14 +107,13 @@ class _CartScreenState extends State<CartScreen> {
     });
   }
 
-  // Toggle got-it checkbox
   void _toggle(int i) {
     setState(() {
       _items[i].gotIt = !_items[i].gotIt;
     });
   }
 
-  // Add a new item
+
   void _addItem() {
     final name = _nameController.text.trim();
     final price = double.tryParse(
@@ -148,14 +146,12 @@ class _CartScreenState extends State<CartScreen> {
     FocusScope.of(context).unfocus();
   }
 
-  // Remove all checked items
   void _clearChecked() {
     setState(() {
       _items.removeWhere((item) => item.gotIt);
     });
   }
 
-  // Calculate total price
   double get _total {
     return _items.fold(
       0.0,
@@ -181,7 +177,7 @@ class _CartScreenState extends State<CartScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            // Shopping cart list
+           
             Expanded(
               child: _items.isEmpty
                   ? const Center(
@@ -203,7 +199,7 @@ class _CartScreenState extends State<CartScreen> {
                     ),
             ),
 
-            // Summary bar
+         
             Container(
               margin: const EdgeInsets.symmetric(
                 horizontal: 10,
@@ -246,7 +242,6 @@ class _CartScreenState extends State<CartScreen> {
               ),
             ),
 
-            // Item name and price form
             Padding(
               padding: const EdgeInsets.fromLTRB(
                 12, 8, 12, 4,
@@ -310,7 +305,6 @@ class _CartScreenState extends State<CartScreen> {
               ),
             ),
 
-            // Add and clear buttons
             Padding(
               padding: const EdgeInsets.fromLTRB(
                 12, 4, 12, 12,
@@ -340,7 +334,6 @@ class _CartScreenState extends State<CartScreen> {
   }
 }
 
-// Stateless widget for each cart item
 class CartItemTile extends StatelessWidget {
   final CartItem item;
   final VoidCallback onIncrease;
