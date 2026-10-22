@@ -40,7 +40,6 @@ void main() => runApp(
       ),
     );
 
-// Cart item model
 class CartItem {
   String name;
   double price;
@@ -55,7 +54,7 @@ class CartItem {
   });
 }
 
-// Main shopping cart screen
+
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
 
@@ -72,7 +71,6 @@ class _CartScreenState extends State<CartScreen> {
   final TextEditingController _priceController =
       TextEditingController();
 
-  // Preload three sample items
   @override
   void initState() {
     super.initState();
